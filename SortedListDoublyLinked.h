@@ -1,3 +1,9 @@
+/*
+Lab10
+CSC 2111 Lab 10
+Joe Bivens and Katherine (Katie) Brown
+https://github.com/kebrown46/Lab10
+*/
 #if !defined (SLDL_H)
 #define SLDL_H
 
