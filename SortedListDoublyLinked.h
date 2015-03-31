@@ -71,7 +71,6 @@ void SortedListDoublyLinked<T>::remove(String* sk)
 template < class T >
 T* SortedListDoublyLinked<T>::remove(DoubleNode<T>* curr)
 {
-
    //DO THIS (prev == NULL / after == NULL are special cases)
    //remember to set loc
 
