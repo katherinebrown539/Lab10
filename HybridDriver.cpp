@@ -51,16 +51,20 @@ int main()
       cd->displayCD();
    }
    delete iter;
-
+	cout << "Finished enqueing\n\n";
    while(!(h->isEmpty()))
    {
       CD* cd = h->dequeue();
       cd->displayCD();
+	  cout << count << endl;
+	  count++;
    }
+   cout << "Finished dequeueing\n\n";
    delete h;
 
    deleteCDs(cds);
    delete cds;
+   cout << "Finish deleting\n";
    return 0;
 }
 

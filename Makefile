@@ -1,8 +1,8 @@
 AutomatedMakefile = am
 CC = g++
 
-FILES = 
-EXECUTABLE = 
+FILES = HybridDriver.o
+EXECUTABLE = Lab10.exe
 
 PROJECT_PATH = $(PROJECT_DIR)
 
@@ -15,8 +15,8 @@ LINK = $(CC) $(LIB_DIRS) -o
 
 all: Project
 
-Project: 		$(FILES)
+Project: 	$(FILES)
 			$(LINK) $(EXECUTABLE) $(FILES) $(LIBS)
 
-
-
+HybridDriver.o: HybridDriver.cpp Hybrid.h
+				$(COMPILE) HybridDriver.cpp

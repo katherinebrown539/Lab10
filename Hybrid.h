@@ -10,7 +10,8 @@ class Hybrid
 {
 
    private:
-      QueueLinked<T>* q;
+      //QueueLinked<T>* q;
+	  QueueLinked<DoubleNode<T>> qd;
       SortedListDoublyLinked<T>* sldl;
 
    public:
@@ -27,7 +28,8 @@ class Hybrid
 template < class T >
 Hybrid<T>::Hybrid(int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
-   q = new QueueLinked<T>();
+   //q = new QueueLinked<T>();
+   qd = new QueueLinked<DoubleNode<T>>();
    sldl = new SortedListDoublyLinked<T>(comp_items, comp_keys);
 }
 
@@ -43,17 +45,23 @@ Hybrid<T>::~Hybrid()
 //as outlined in the Lab 10 description
 //simply comment the first implementation out when working on the second implementation
 //use the getKey method to dequeue/remove
- bool isEmpty()
+template < class T >
+ bool Hybrid<T>::isEmpty()
  {
 	 return q->isEmpty();
  }
- void enqueue(T* item)
+ 
+ /*
+ template < class T >
+ void Hybrid<T>::enqueue(T* item)
  {
 	//easy
 	q->enqueue(item);
 	sldl->add(item);
  }
- T* dequeue()
+ 
+ template < class T >
+ T* Hybrid<T>::dequeue()
  {
 	 T* item_to_get_axe = q->dequeue();
 	 
@@ -63,7 +71,22 @@ Hybrid<T>::~Hybrid()
 	 
 	 return item_to_get_axe;
  }
- ListDoublyLinkedIterator<T>* iterator()
+ */
+ 
+ 
+  template < class T >
+ void Hybrid<T>::enqueue(T* item)
+ {
+	 
+ }
+ 
+ template < class T >
+ T* Hybrid<T>::dequeue()
+ {
+	
+ }
+ template < class T >
+ ListDoublyLinkedIterator<T>* Hybrid<T>::iterator()
  {
 	ListDoublyLinkedIterator<T>* iter = sldl->iterator();
 	return iter;
