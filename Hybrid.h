@@ -64,7 +64,10 @@ Hybrid<T>::~Hybrid()
 	 return item_to_get_axe;
  }
  ListDoublyLinkedIterator<T>* iterator()
- {}
+ {
+	ListDoublyLinkedIterator<T>* iter = sldl->iterator();
+	return iter;
+ }
 
 
 
