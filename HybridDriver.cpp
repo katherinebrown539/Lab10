@@ -45,30 +45,29 @@ int main()
    addCDs(cds, h);
 
    ListDoublyLinkedIterator<CD>* iter = h->iterator();
-   int count = 0;
+  
    while(iter->hasNext())
    {
       CD* cd = iter->next();
       cd->displayCD();
-	  cout << count << endl;
-	  count++;
+	
    }
+   
    delete iter;
-	cout << "Finished enqueing\n\n";
-	count = 0;
+
+	
    while(!(h->isEmpty()))
    {
       CD* cd = h->dequeue();
       cd->displayCD();
-	  cout << count << endl;
-	  count++;
+	 
    }
-   cout << "Finished dequeueing\n\n";
+  
    delete h;
 
    deleteCDs(cds);
    delete cds;
-   cout << "Finish deleting\n";
+   
    return 0;
 }
 
