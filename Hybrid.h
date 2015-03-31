@@ -11,7 +11,7 @@ class Hybrid
 
    private:
       //QueueLinked<T>* q;
-	  QueueLinked<DoubleNode<T>> qd;
+	  QueueLinked< DoubleNode<T> >* q;
       SortedListDoublyLinked<T>* sldl;
 
    public:
@@ -29,7 +29,7 @@ template < class T >
 Hybrid<T>::Hybrid(int (*comp_items) (T* item_1, T* item_2), int (*comp_keys) (String* key, T* item))
 {
    //q = new QueueLinked<T>();
-   qd = new QueueLinked<DoubleNode<T>>();
+   q = new QueueLinked< DoubleNode<T> >();
    sldl = new SortedListDoublyLinked<T>(comp_items, comp_keys);
 }
 
@@ -77,14 +77,17 @@ template < class T >
   template < class T >
  void Hybrid<T>::enqueue(T* item)
  {
-	 
+	 DoubleNode<T>* dn = sldl->addDN(item);
+	 q->enqueue(dn); 
  }
  
  template < class T >
  T* Hybrid<T>::dequeue()
  {
-	
+	DoubleNode<T>* node_to_get_axe = q->dequeue();
+	return sldl->remove(node_to_get_axe);
  }
+ 
  template < class T >
  ListDoublyLinkedIterator<T>* Hybrid<T>::iterator()
  {
